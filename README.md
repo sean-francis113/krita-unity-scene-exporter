@@ -9,8 +9,8 @@ This script accesses the active document in Krita and makes sure that the docume
 
 **Notes**
 
+*Standalone Script*
+
 Most of the global variables can be altered as needed by the user. Alterable variables are under the section labeled "Alter These Variables as Needed." These include the file extensions, file paths, and whether you wish to use a folder system or not.
 
 The global variables that SHOULD NOT be altered are under the "Do Not Alter Below Variables!" section.
-
-If you wish to use a folder system, note that you (currently) must have the folders already created. The script will not save the files if the specified folders do not exist. (Looking into this)
