@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Unity_Extension_Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<LayerCollection>
+		<Layer>
+			<Name>Test</Name>
+			<Filename>Ground_Test_exported08172018_181210</Filename>
+			<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+			<Type>ground</Type>
+			<Position>
+				<X>0</X>
+				<Y>0</Y>
+			</Position>
+		</Layer>
+		<Layer>
+			<Name>Testing</Name>
+			<Filename>Platform_Testing_exported08172018_181221</Filename>
+			<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+			<Type>platform</Type>
+			<Position>
+				<X>0</X>
+				<Y>0</Y>
+			</Position>
+		</Layer>
+		<Layer>
+			<Name>TestingYay</Name>
+			<Filename>BackgroundScenery_TestingYay_exported08172018_181226</Filename>
+			<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+			<Type>backgroundscenery</Type>
+			<Position>
+				<X>0</X>
+				<Y>0</Y>
+			</Position>
+		</Layer>
+		<Layer>
+			<Name>ForegroundTest</Name>
+			<Filename>FOREGROUND_ForegroundTest_exported08172018_181232</Filename>
+			<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+			<Type>foreground</Type>
+			<Position>
+				<X>0</X>
+				<Y>0</Y>
+			</Position>
+		</Layer>
+	</LayerCollection>
+</Unity_Extension_Test>

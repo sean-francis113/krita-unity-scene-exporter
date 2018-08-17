@@ -1,4 +1,4 @@
-#Unity Scene Exporter
+#Unity Scene Exporter Dock
 #Confirms There Are Layers in an Open Document.
 #Takes Layers from Krita Based on Keywords.
 #Removes Top Layers (Layers Outside Groups)
