@@ -9,8 +9,33 @@ This script accesses the active document in Krita and makes sure that the docume
 
 **Notes**
 
+*General*
+
+Both the Standalone Script and Extension have been tested on Krita 4.1.1.
+
+*Standalone Script*
+
 Most of the global variables can be altered as needed by the user. Alterable variables are under the section labeled "Alter These Variables as Needed." These include the file extensions, file paths, and whether you wish to use a folder system or not.
 
 The global variables that SHOULD NOT be altered are under the "Do Not Alter Below Variables!" section.
 
-If you wish to use a folder system, note that you (currently) must have the folders already created. The script will not save the files if the specified folders do not exist. (Looking into this)
+In order to use the Standalone Script:
+
+1. Open Krita
+2. Open the Scripter under 'Tools' -> 'Scripter'
+3. Open the script by clicking 'File' -> 'Open'
+4. Inside of the script, change the global variables as needed.
+5. Run the script by hitting the 'Play' button
+
+*Extension*
+
+In order to use the extension:
+
+1. Open Krita
+2. Under 'Settings' -> 'Manage Resources...' click on 'Open Resource Folder'
+3. This will open up a folder.
+4. Find the 'pykrita' folder.
+5. Paste/Insert the 'unity_scene_exporter' folder and 'unity_scene_exporter.desktop' file into the 'pykrita' folder.
+6. Close and Reopen Krita.
+7. Now, whenever you wish to use the Extension, click on 'Tools' -> 'Unity Scene Exporter'
+8. This will open the UI Dialogue that you can then use to export the Unity Scene
