@@ -227,13 +227,13 @@ class UnitySceneExporter(Extension):
 		tokens = layerName.split("_")
 		name = tokens[1]
 
-		self.xmlString += "\t\t<Layer>\n\t\t\t<Name>" + str(name) + "</Name>"
-		self.xmlString += "\n\t\t\t<Filename>" + str(layerName) + "</Filename>"
-		self.xmlString += "\n\t\t\t<Path>" + str(layerFilePath) + "</Path>"
-		self.xmlString += "\n\t\t\t<Type>" + str(layerType) + "</Type>"
-		self.xmlString += "\n\t\t\t<Position>\n\t\t\t\t<X>" + str(layerXPos) + "</X>"
-		self.xmlString += "\n\t\t\t\t<Y>" + str(layerYPos) + "</Y>\n\t\t\t</Position>\n"
-		self.xmlString += "\t\t</Layer>\n"
+		self.xmlString += "\t\t\t<Layer>\n\t\t\t\t<Name>" + str(name) + "</Name>"
+		self.xmlString += "\n\t\t\t\t<Filename>" + str(layerName) + "</Filename>"
+		self.xmlString += "\n\t\t\t\t<Path>" + str(layerFilePath) + "</Path>"
+		self.xmlString += "\n\t\t\t\t<Type>" + str(layerType) + "</Type>"
+		self.xmlString += "\n\t\t\t\t<Position>\n\t\t\t\t\t<X>" + str(layerXPos) + "</X>"
+		self.xmlString += "\n\t\t\t\t\t<Y>" + str(layerYPos) + "</Y>\n\t\t\t\t</Position>\n"
+		self.xmlString += "\t\t\t</Layer>\n"
 
 	##########
 	#
@@ -271,7 +271,7 @@ class UnitySceneExporter(Extension):
 		xmlFilePath = ""
 		xmlFile = None
 
-		self.xmlString += "\t</LayerCollection>\n</" + self.unityScene + ">"
+		self.xmlString += "\t\t</LayerCollection>\n\t</" + self.unityScene + ">\n</UnityScene>"
 
 		if self.useFolders is True:
 
@@ -429,7 +429,7 @@ class UnitySceneExporter(Extension):
 		self.AddToLog("Data Set...")
 
 		self.xmlString = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-		self.xmlString += "<" + self.unityScene + " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<LayerCollection>\n"
+		self.xmlString += "<UnityScene xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<" + self.unityScene + ">\n\t\t<LayerCollection>\n"
 
 		#self.AddToLog("Checking if Folders Exist...")
 

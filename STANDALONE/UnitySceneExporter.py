@@ -57,7 +57,7 @@ exportFolder = "test/export/"
 
 logString = "Unity Scene Exporter Log [%s]\n\n" % (datetime.datetime.now().strftime("%m/%d/%Y"))
 xmlString = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-xmlString += "<" + unityScene + " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<LayerCollection>\n"
+xmlString += "<UnityScene xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<" + unityScene + ">\n\t\t<LayerCollection>\n"
 needToExit = False
 layerKeyword = ""
 doc = None
@@ -99,13 +99,13 @@ def AddToXML(layerName, layerFilePath, layerType, layerXPos, layerYPos):
 	name = tokens[1]
 
 	
-	xmlString += "\t\t<Layer>\n\t\t\t<Name>" + str(name) + "</Name>"
-	xmlString += "\n\t\t\t<Filename>" + str(layerName) + "</Filename>"
-	xmlString += "\n\t\t\t<Path>" + str(layerFilePath) + "</Path>"
-	xmlString += "\n\t\t\t<Type>" + str(layerType) + "</Type>"
-	xmlString += "\n\t\t\t<Position>\n\t\t\t\t<X>" + str(layerXPos) + "</X>"
-	xmlString += "\n\t\t\t\t<Y>" + str(layerYPos) + "</Y>\n\t\t\t</Position>\n"
-	xmlString += "\t\t</Layer>\n"
+	xmlString += "\t\t\t<Layer>\n\t\t\t\t<Name>" + str(name) + "</Name>"
+	xmlString += "\n\t\t\t\t<Filename>" + str(layerName) + "</Filename>"
+	xmlString += "\n\t\t\t\t<Path>" + str(layerFilePath) + "</Path>"
+	xmlString += "\n\t\t\t\t<Type>" + str(layerType) + "</Type>"
+	xmlString += "\n\t\t\t\t<Position>\n\t\t\t\t\t<X>" + str(layerXPos) + "</X>"
+	xmlString += "\n\t\t\t\t\t<Y>" + str(layerYPos) + "</Y>\n\t\t\t\t</Position>\n"
+	xmlString += "\t\t\t</Layer>\n"
 	
 
 ##########
@@ -157,7 +157,7 @@ def SaveXMLFile():
 	xmlFilePath = ""
 	xmlFile = None
 
-	xmlString += "\t</LayerCollection>\n</" + unityScene + ">"
+	xmlString += "\t</LayerCollection>\n\t</" + unityScene + ">\n</UnityScene>"
 	
 	if useFolders is True:
 	
