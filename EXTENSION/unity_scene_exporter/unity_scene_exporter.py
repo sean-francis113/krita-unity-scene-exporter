@@ -429,7 +429,7 @@ class UnitySceneExporter(Extension):
 		self.AddToLog("Data Set...")
 
 		self.xmlString = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-		self.xmlString += "<UnityScene xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<" + self.unityScene + ">\n\t\t<LayerCollection>\n"
+		self.xmlString += "<UnityScene>\n\t<" + self.unityScene + ">\n\t\t<LayerCollection>\n"
 
 		#self.AddToLog("Checking if Folders Exist...")
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UnityScene>
+	<Unity_Extension_TEST>
+		<LayerCollection>
+			<Layer>
+				<Name>Test</Name>
+				<Filename>Ground_Test_exported08242018_210015</Filename>
+				<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+				<Type>ground</Type>
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+				</Position>
+			</Layer>
+			<Layer>
+				<Name>Testing</Name>
+				<Filename>Platform_Testing_exported08242018_210027</Filename>
+				<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+				<Type>platform</Type>
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+				</Position>
+			</Layer>
+			<Layer>
+				<Name>TestingYay</Name>
+				<Filename>BackgroundScenery_TestingYay_exported08242018_210033</Filename>
+				<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+				<Type>backgroundscenery</Type>
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+				</Position>
+			</Layer>
+			<Layer>
+				<Name>ForegroundTest</Name>
+				<Filename>FOREGROUND_ForegroundTest_exported08242018_210041</Filename>
+				<Path>C:\Users\seanf\Pictures\DigitalPainting\kritaScriptTesting/export/</Path>
+				<Type>foreground</Type>
+				<Position>
+					<X>0</X>
+					<Y>0</Y>
+				</Position>
+			</Layer>
+		</LayerCollection>
+	</Unity_Extension_TEST>
+</UnityScene>

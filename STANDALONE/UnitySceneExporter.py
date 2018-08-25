@@ -57,7 +57,7 @@ exportFolder = "test/export/"
 
 logString = "Unity Scene Exporter Log [%s]\n\n" % (datetime.datetime.now().strftime("%m/%d/%Y"))
 xmlString = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-xmlString += "<UnityScene xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<" + unityScene + ">\n\t\t<LayerCollection>\n"
+xmlString += "<UnityScene>\n\t<" + unityScene + ">\n\t\t<LayerCollection>\n"
 needToExit = False
 layerKeyword = ""
 doc = None
