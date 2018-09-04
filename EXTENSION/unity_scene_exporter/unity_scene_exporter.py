@@ -66,6 +66,7 @@ class UnitySceneExporter(Extension):
 	needToExit = False
 	layerKeyword  = ""
 	doc = None
+	pixelToMeter = 0.000264583
 
 	##########
 	#
@@ -227,13 +228,13 @@ class UnitySceneExporter(Extension):
 		tokens = layerName.split("_")
 		name = tokens[1]
 
-		self.xmlString += "\t\t<Layer>\n\t\t\t<Name>" + str(name) + "</Name>"
-		self.xmlString += "\n\t\t\t<Filename>" + str(layerName) + "</Filename>"
-		self.xmlString += "\n\t\t\t<Path>" + str(layerFilePath) + "</Path>"
-		self.xmlString += "\n\t\t\t<Type>" + str(layerType) + "</Type>"
-		self.xmlString += "\n\t\t\t<Position>\n\t\t\t\t<X>" + str(layerXPos) + "</X>"
-		self.xmlString += "\n\t\t\t\t<Y>" + str(layerYPos) + "</Y>\n\t\t\t</Position>\n"
-		self.xmlString += "\t\t</Layer>\n"
+		self.xmlString += "\t\t\t<Layer>\n\t\t\t\t<Name>" + str(name) + "</Name>"
+		self.xmlString += "\n\t\t\t\t<Filename>" + str(layerName) + "</Filename>"
+		self.xmlString += "\n\t\t\t\t<Path>" + str(layerFilePath) + "</Path>"
+		self.xmlString += "\n\t\t\t\t<Type>" + str(layerType) + "</Type>"
+		self.xmlString += "\n\t\t\t\t<Position>\n\t\t\t\t\t<X>" + str(layerXPos) + "</X>"
+		self.xmlString += "\n\t\t\t\t\t<Y>" + str(layerYPos) + "</Y>\n\t\t\t\t</Position>\n"
+		self.xmlString += "\t\t\t</Layer>\n"
 
 	##########
 	#
@@ -271,7 +272,7 @@ class UnitySceneExporter(Extension):
 		xmlFilePath = ""
 		xmlFile = None
 
-		self.xmlString += "\t</LayerCollection>\n</" + self.unityScene + ">"
+		self.xmlString += "\t\t</LayerCollection>\n\t</" + self.unityScene + ">\n</UnityScene>"
 
 		if self.useFolders is True:
 
@@ -339,7 +340,7 @@ class UnitySceneExporter(Extension):
 	#
 	#########
 	def ExportLayer(self, layerToExport, layerType):
-
+	
 		finalChild = None
 		children = layerToExport.childNodes()
 		childCount = len(children)
@@ -360,21 +361,25 @@ class UnitySceneExporter(Extension):
 
 		finalChild = children[0]
 
-		size = finalChild.bounds()
+		self.AddToLog("Confirming Successful Merge...")
+		self.AddToLog("Getting Layer Size...")
+
+		size = self.finalChild.bounds()
 		sizeW = size.width()
 		sizeH = size.height()
 
 		self.AddToLog("Size - W: " + str(sizeW) + " H: " + str(sizeH))
 		self.AddToLog("Getting Position...")
 
-		position = finalChild.position()
-		posX = position.x()
-		posY = position.y()
+		#Grab Center of Image By Halving Width/Height, Offset By Position, and Converting to Meters (Which Unity Uses)
+		#Convertion From http://www.unitconversion.org/typography/pixels-x-to-meters-conversion.html
+		posX = (sizeW - (size.x() / 2)) * self.pixelToMeter
+		posY = (sizeH - (size.y() / 2)) * self.pixelToMeter
 
 		self.AddToLog("Position - X: " + str(posX) + " Y: " + str(posY))
 		self.AddToLog("Setting File Name...")
 
-		fileName = finalChild.parentNode().name().replace(":", "_")
+		fileName = self.finalChild.parentNode().name().replace(":", "_")
 		fileName += "_exported%s" % (datetime.datetime.now().strftime("%m%d%Y_%H%M%S"))
 
 		self.AddToLog("Filename is: " + fileName)
@@ -429,7 +434,7 @@ class UnitySceneExporter(Extension):
 		self.AddToLog("Data Set...")
 
 		self.xmlString = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-		self.xmlString += "<" + self.unityScene + " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n\t<LayerCollection>\n"
+		self.xmlString += "<UnityScene>\n\t<" + self.unityScene + ">\n\t\t<LayerCollection>\n"
 
 		#self.AddToLog("Checking if Folders Exist...")
 
