@@ -651,6 +651,7 @@ class UnitySceneExporter(Extension):
 												self.AddToLog("Saving Log File...")
 
 												self.SaveLogFile()
+												self.doc.close()
 
 	def __init__(self, parent):
 		#Always initialise the superclass, This is necessary to create the underlying C++ object
