@@ -520,3 +520,4 @@ else:
 										AddToLog("Saving Log File...")
 										
 										SaveLogFile()
+										doc.close()
