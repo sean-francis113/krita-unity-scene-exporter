@@ -252,20 +252,19 @@ def ExportLayer(layerToExport, layerType):
 		AddToLog("Merged " + str(mergeCount) + " Layer(s)")
 		
 	AddToLog("Confirming Successful Merge...")
-	AddToLog("Getting Layer Size...")
-		
 	finalChild = children[0]
-		
+	self.AddToLog("Getting Layer Size...")
 	size = finalChild.bounds()
 	sizeW = size.width()
 	sizeH = size.height()
-	
-	AddToLog("Size - W: " + str(sizeW) + " H: " + str(sizeH))
-	AddToLog("Getting Position...")
-		
-	position = finalChild.position()
-	posX = position.x()
-	posY = position.y()
+
+	self.AddToLog("Size - W: " + str(sizeW) + " H: " + str(sizeH))
+	self.AddToLog("Getting Position...")
+
+	#Grab Center of Image By Halving Width/Height, Offset By Position, and Converting to Meters (Which Unity Uses)
+	#Convertion From http://www.unitconversion.org/typography/pixels-x-to-meters-conversion.html
+	posX = (sizeW - (size.x() / 2)) * self.pixelToMeter
+	posY = (sizeH - (size.y() / 2)) * self.pixelToMeter
 		
 	AddToLog("Position - X: " + str(posX) + " Y: " + str(posY))
 	AddToLog("Setting File Name...")
