@@ -256,7 +256,7 @@ class UnitySceneExporter(Extension):
 		else:
 
 			savePath = (self.filepath + "log_%s" + self.logExtension) % (datetime.datetime.now().strftime("%m%d%Y_%H%M%S"))
-			logFile= open(self.filepath + "log_" + self.logExtension, "w+")
+			logFile= open(savePath, "w+")
 			logFile.write(self.logString)
 			logFile.close()
 
