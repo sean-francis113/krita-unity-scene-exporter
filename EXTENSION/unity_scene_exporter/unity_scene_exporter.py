@@ -66,6 +66,7 @@ class UnitySceneExporter(Extension):
 	needToExit = False
 	layerKeyword  = ""
 	doc = None
+	pixelToMeter = 0.000264583
 
 	##########
 	#
