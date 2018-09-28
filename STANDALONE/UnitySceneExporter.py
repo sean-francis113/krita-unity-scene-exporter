@@ -61,6 +61,7 @@ xmlString += "<UnityScene>\n\t<" + unityScene + ">\n\t\t<LayerCollection>\n"
 needToExit = False
 layerKeyword = ""
 doc = None
+pixelToMeter = 0.000264583
 
 #############################################################
 
