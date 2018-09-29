@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Service
-ServiceTypes=Krita/PythonPlugin
-X-KDE-Library=unity_scene_exporter
-X-Python-2-Compatible=false
-X-Krita-Manual=Manual.html
-Name=Unity Scene Exporter
-Comment=Exports Krita Document's Group Layers Based on Keywords to be used in a Unity Engine Importer
