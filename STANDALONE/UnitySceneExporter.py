@@ -42,12 +42,12 @@ fileExtension = ".png"
 logExtension = ".txt"
 xmlExtension = ".xml"
 
-filepath = "C:/Users/seanf/Pictures/DigitalPainting/kritaScriptTesting/"
+filepath = ""
 useFolders = True;
-logFolder = "test/log/"
-kritaFolder = "test/kritaDocuments/"
-xmlFolder = "test/xml/"
-exportFolder = "test/export/"
+logFolder = ""
+kritaFolder = ""
+xmlFolder = ""
+exportFolder = ""
 
 ############
 #
@@ -236,41 +236,31 @@ def ExportLayer(layerToExport, layerType):
 	global fileExtension
 	global doc
 	
-	finalChild = None
-	children = layerToExport.childNodes()
-	childCount = len(children)
-	mergeCount = 0	
 	fileName = ""
 	filePathToSave = ""
 	fullPath = ""
 	
-	#While We Still Have Children To Merge
-	while(mergeCount < childCount - 1):
-		
-		finalChild = children[0].mergeDown()
-		mergeCount += 1
-		AddToLog("Merged " + str(mergeCount) + " Layer(s)")
-		
-	AddToLog("Confirming Successful Merge...")
+	AddToLog("Starting Export of " + layerToExport.name())
+	
 	AddToLog("Getting Layer Size...")
 		
-	finalChild = children[0]
+	layerToExport = children[0]
 		
-	size = finalChild.bounds()
+	size = layerToExport.bounds()
 	sizeW = size.width()
 	sizeH = size.height()
 	
 	AddToLog("Size - W: " + str(sizeW) + " H: " + str(sizeH))
 	AddToLog("Getting Position...")
 		
-	position = finalChild.position()
+	position = layerToExport.position()
 	posX = position.x()
 	posY = position.y()
 		
 	AddToLog("Position - X: " + str(posX) + " Y: " + str(posY))
 	AddToLog("Setting File Name...")
 	
-	fileName = finalChild.parentNode().name().replace(":", "_")
+	fileName = layerToExport.parentNode().name().replace(":", "_")
 	fileName += "_exported%s" % (datetime.datetime.now().strftime("%m%d%Y_%H%M%S"))
 	
 	AddToLog("Filename is: " + fileName)
@@ -285,7 +275,7 @@ def ExportLayer(layerToExport, layerType):
 		
 	AddToLog("Saving " + fileName + " at: " + filePathToSave)
 	fullPath = filePathToSave + fileName + fileExtension
-	saved = finalChild.save(fullPath, sizeW, sizeH)
+	saved = layerToExport.save(fullPath, sizeW, sizeH)
 	
 	if saved is False:
 	

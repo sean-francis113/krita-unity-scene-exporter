@@ -340,31 +340,15 @@ class UnitySceneExporter(Extension):
 	#
 	#########
 	def ExportLayer(self, layerToExport, layerType):
-	
-		finalChild = None
-		children = layerToExport.childNodes()
-		childCount = len(children)
-		mergeCount = 0
+				
 		fileName = ""
 		filePathToSave = ""
 		fullPath = ""
-
-		#While We Still Have Children To Merge
-		while(mergeCount < childCount - 1):
-
-			finalChild = children[0].mergeDown()
-			mergeCount += 1
-			self.AddToLog("Merged " + str(mergeCount) + " Layer(s)")
-
-		self.AddToLog("Confirming Successful Merge...")
+		
+		self.AddToLog("Starting To Export " + layerToExport.name())
+		
 		self.AddToLog("Getting Layer Size...")
-
-		finalChild = children[0]
-
-		self.AddToLog("Confirming Successful Merge...")
-		self.AddToLog("Getting Layer Size...")
-
-		size = self.finalChild.bounds()
+		size = layerToExport.bounds()
 		sizeW = size.width()
 		sizeH = size.height()
 
@@ -379,7 +363,7 @@ class UnitySceneExporter(Extension):
 		self.AddToLog("Position - X: " + str(posX) + " Y: " + str(posY))
 		self.AddToLog("Setting File Name...")
 
-		fileName = self.finalChild.parentNode().name().replace(":", "_")
+		fileName = layerToExport.name().replace(":", "_")
 		fileName += "_exported%s" % (datetime.datetime.now().strftime("%m%d%Y_%H%M%S"))
 
 		self.AddToLog("Filename is: " + fileName)
@@ -392,9 +376,9 @@ class UnitySceneExporter(Extension):
 
 			filePathToSave = self.filepath
 
-		self.AddToLog("Saving " + fileName + " at: " + filePathToSave)
+		self.AddToLog("Exporting " + fileName + " at: " + filePathToSave)
 		fullPath = filePathToSave + fileName + self.fileExtension
-		saved = finalChild.save(fullPath, sizeW, sizeH)
+		saved = layerToExport.save(fullPath, sizeW, sizeH)
 
 		if saved is False:
 
@@ -649,6 +633,8 @@ class UnitySceneExporter(Extension):
 											if self.needToExit is not True:
 
 												self.AddToLog("Successfully Exported All Layers...")
+												self.AddToLog("Saving Document...")
+												self.doc.save()												
 												self.AddToLog("Saving XML File...")
 
 												self.SaveXMLFile()
@@ -656,6 +642,7 @@ class UnitySceneExporter(Extension):
 												self.AddToLog("Saving Log File...")
 
 												self.SaveLogFile()
+												self.doc.close()
 
 	def __init__(self, parent):
 		#Always initialise the superclass, This is necessary to create the underlying C++ object
