@@ -260,7 +260,7 @@ def ExportLayer(layerToExport, layerType):
 	AddToLog("Position - X: " + str(posX) + " Y: " + str(posY))
 	AddToLog("Setting File Name...")
 	
-	fileName = layerToExport.parentNode().name().replace(":", "_")
+	fileName = layerToExport.name().replace(":", "_")
 	fileName += "_exported%s" % (datetime.datetime.now().strftime("%m%d%Y_%H%M%S"))
 	
 	AddToLog("Filename is: " + fileName)
