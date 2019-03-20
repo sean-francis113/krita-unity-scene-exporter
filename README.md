@@ -39,3 +39,5 @@ In order to use the extension:
 6. Close and Reopen Krita.
 7. Now, whenever you wish to use the Extension, click on 'Tools' -> 'Unity Scene Exporter'
 8. This will open the UI Dialogue that you can then use to export the Unity Scene
+
+Copyright: Sean Francis 2019
